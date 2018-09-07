@@ -192,7 +192,7 @@ class VarnishSocket
      */
     private function read()
     {
-        if (! g$this->isConnected()) {
+        if (! $this->isConnected()) {
             throw new \Exception('Cannot read from Varnish socket because it\'s not connected');
         }
 
