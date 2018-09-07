@@ -24,27 +24,27 @@ class VarnishResponse
 
     /**
      * Varnish control command contains the status code and content length
-     * e.g. 107 59
+     * e.g. 107 59.
      */
     const CONTROL_COMMAND_REGEX = '/^(\d{3}) (\d+)/';
 
     /**
-     * Authentication challenge length
+     * Authentication challenge length.
      */
     const CHALLENGE_LENGTH = 32;
 
     /**
-     * @var $code int: The varnish return code
+     * @var int: The varnish return code
      */
     private $code = null;
 
     /**
-     * @var $length int: The length of the following content
+     * @var int: The length of the following content
      */
     private $length = null;
 
     /**
-     * @var $content string: The actual content of the response
+     * @var string: The actual content of the response
      */
     private $content = '';
 
@@ -104,14 +104,16 @@ class VarnishResponse
     /**
      * @return bool
      */
-    public function isAuthRequest() {
+    public function isAuthRequest()
+    {
         return $this->getCode() === VarnishResponse::VARN_AUTH;
     }
 
     /**
      * @return bool|string
      */
-    public function getAuthChallenge() {
+    public function getAuthChallenge()
+    {
         return substr($this->content, 0, self::CHALLENGE_LENGTH);
     }
 
@@ -119,7 +121,8 @@ class VarnishResponse
      * @param $chunk
      * @return bool
      */
-    public function parseControlCommand($chunk) {
+    public function parseControlCommand($chunk)
+    {
         // Varnish will output a code and a content length, followed by the actual content
         if (preg_match(self::CONTROL_COMMAND_REGEX, $chunk, $match)) {
             $this->setCode((int) $match[1]);
@@ -132,21 +135,24 @@ class VarnishResponse
     /**
      * @return bool
      */
-    public function hasLength() {
+    public function hasLength()
+    {
         return $this->getLength() !== null;
     }
 
     /**
      * @return bool
      */
-    public function contentLengthReached() {
+    public function contentLengthReached()
+    {
         return strlen($this->getContent()) >= $this->getLength();
     }
 
     /*
      * @return bool
      */
-    public function finishedReading() {
+    public function finishedReading()
+    {
         return $this->hasLength() && $this->contentLengthReached();
     }
 }

@@ -33,6 +33,7 @@ class Varnish
                 break;
             case self::EXEC_COMMAND:
                 $command = $this->generateBanCommand($expr);
+
                 return $this->executeCommand($command);
                 break;
             default:
@@ -138,7 +139,7 @@ class Varnish
                 $socket->command($command);
                 $socket->quit();
             }
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return false;
         } finally {
             $socket->close();

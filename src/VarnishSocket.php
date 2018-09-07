@@ -82,6 +82,7 @@ class VarnishSocket
         // Open socket connection
         self::socketConnect($host, $port);
         self::authenticate($secret);
+
         return $this->isConnected();
     }
 
@@ -90,7 +91,8 @@ class VarnishSocket
      * @param $port
      * @throws \Exception
      */
-    private function socketConnect($host, $port) {
+    private function socketConnect($host, $port)
+    {
         $this->varnishSocket = fsockopen(
             $host, $port,
             $errno, $errstr,
@@ -113,7 +115,8 @@ class VarnishSocket
      * @param $secret
      * @throws \Exception
      */
-    private function authenticate($secret) {
+    private function authenticate($secret)
+    {
         // Read first response from socket
         $response = $this->read();
 
@@ -146,8 +149,10 @@ class VarnishSocket
     {
         if (is_resource($this->varnishSocket)) {
             $meta = stream_get_meta_data($this->varnishSocket);
+
             return ! ($meta['eof'] || $meta['timed_out']);
         }
+
         return false;
     }
 
@@ -156,7 +161,8 @@ class VarnishSocket
      * @param $secret
      * @return string
      */
-    private function calculateAuthToken($challenge, $secret) {
+    private function calculateAuthToken($challenge, $secret)
+    {
         // Ensure challenge ends with a newline
         $challenge = $this->ensureNewline($challenge);
         return hash('sha256',
@@ -171,7 +177,8 @@ class VarnishSocket
      * @param $data
      * @return string
      */
-    private function ensureNewline($data) {
+    private function ensureNewline($data)
+    {
         if (! preg_match('/\n$/', $data)) {
             $data .= "\n";
         }
@@ -185,7 +192,7 @@ class VarnishSocket
      */
     private function read()
     {
-        if (!$this->isConnected()) {
+        if (! g$this->isConnected()) {
             throw new \Exception('Cannot read from Varnish socket because it\'s not connected');
         }
 
@@ -207,7 +214,8 @@ class VarnishSocket
      * @return VarnishResponse
      * @throws \Exception
      */
-    private function readChunks(VarnishResponse $response = null) {
+    private function readChunks(VarnishResponse $response = null)
+    {
         if ($response === null) {
             $response = new VarnishResponse();
         }
@@ -239,7 +247,8 @@ class VarnishSocket
      * @param VarnishResponse $response
      * @return bool
      */
-    private function continueReading(VarnishResponse $response) {
+    private function continueReading(VarnishResponse $response)
+    {
         return ! feof($this->varnishSocket) && ! $response->finishedReading();
     }
 
@@ -248,7 +257,8 @@ class VarnishSocket
      *
      * @throws \Exception
      */
-    private function checkSocketTimeout() {
+    private function checkSocketTimeout()
+    {
         $meta = stream_get_meta_data($this->varnishSocket);
         if ($meta['timed_out']) {
             throw new \Exception(
@@ -263,7 +273,8 @@ class VarnishSocket
      * @return bool|string
      * @throws \Exception
      */
-    private function readSingleChunk() {
+    private function readSingleChunk()
+    {
         $chunk = fgets($this->varnishSocket, self::CHUNK_SIZE);
 
         // Check for socket timeout when an empty chunk is returned
@@ -285,7 +296,7 @@ class VarnishSocket
      */
     private function write($data)
     {
-        if (!$this->isConnected()) {
+        if (! $this->isConnected()) {
             throw new \Exception('Cannot write to Varnish socket because it\'s not connected');
         }
         $data = $this->ensureNewline($data);
@@ -301,6 +312,7 @@ class VarnishSocket
         if ($bytes !== strlen($data)) {
             throw new \Exception('Failed to write to Varnish socket');
         }
+
         return $this;
     }
 
@@ -326,6 +338,7 @@ class VarnishSocket
                 $response->getCode()
             );
         }
+
         return $response;
     }
 
