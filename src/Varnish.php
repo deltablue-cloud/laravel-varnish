@@ -30,12 +30,8 @@ class Varnish
         switch ($config['execution_type'] ?? self::EXEC_COMMAND) {
             case self::EXEC_SOCKET:
                 return $this->executeSocketCommand($expr);
-                break;
             case self::EXEC_COMMAND:
-                $command = $this->generateBanCommand($expr);
-
-                return $this->executeCommand($command);
-                break;
+                return $this->executeCommand($this->generateBanCommand($expr));
             default:
                 throw new \Exception(sprintf(
                     'Unknown execution type: %s', $config['execution_type']
