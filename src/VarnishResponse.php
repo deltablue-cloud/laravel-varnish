@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Varnish;
+namespace DeltaBlue\Varnish;
 
 
 class VarnishResponse

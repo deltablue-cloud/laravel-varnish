@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Varnish\Test;
+namespace DeltaBlue\Varnish\Test;
 
-use Spatie\Varnish\VarnishServiceProvider;
+use DeltaBlue\Varnish\VarnishServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Varnish\Test;
+namespace DeltaBlue\Varnish\Test;
 
 use Route;
-use Spatie\Varnish\Middleware\CacheWithVarnish;
+use DeltaBlue\Varnish\Middleware\CacheWithVarnish;
 
 class MiddlewareTest extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Varnish\Commands;
+namespace DeltaBlue\Varnish\Commands;
 
-use Spatie\Varnish\Varnish;
+use DeltaBlue\Varnish\Varnish;
 use Illuminate\Console\Command;
 
 class FlushVarnishCache extends Command

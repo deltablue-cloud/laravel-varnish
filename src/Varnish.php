@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Varnish;
+namespace DeltaBlue\Varnish;
 
 use Symfony\Component\Process\Process;
 

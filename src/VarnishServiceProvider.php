@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Varnish;
+namespace DeltaBlue\Varnish;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\Varnish\Commands\FlushVarnishCache;
+use DeltaBlue\Varnish\Commands\FlushVarnishCache;
 
 class VarnishServiceProvider extends ServiceProvider
 {

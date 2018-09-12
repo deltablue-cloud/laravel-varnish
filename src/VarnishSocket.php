@@ -51,7 +51,7 @@
  * THE SOFTWARE.
  */
 
-namespace Spatie\Varnish;
+namespace DeltaBlue\Varnish;
 
 class VarnishSocket
 {

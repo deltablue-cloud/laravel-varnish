@@ -23,12 +23,12 @@ The package will automatically register itself for Laravel 5.5+.
 
 If you are using Laravel < 5.5, you also need to add `Varnish\VarnishServiceProvider` to your `config/app.php` providers array:
 ```php
-\Spatie\Varnish\VarnishServiceProvider::class
+\DeltaBlue\Varnish\VarnishServiceProvider::class
 ```
 Next if you use Laravel you must publish the config-file with:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Varnish\VarnishServiceProvider" --tag="config"
+php artisan vendor:publish --provider="DeltaBlue\Varnish\VarnishServiceProvider" --tag="config"
 ```
 and if you use Lumen, you must copy `config/varnish.php` file to your application config folder.
 
@@ -98,14 +98,14 @@ In case you've set the `execution_type` to **socket**, you can either store the 
 in a file and set `administrative_secret`, as used by `varnishadm`, or provide the actual
 secret string in the `administrative_secret_string` variable.
 
-Add the `Spatie\Varnish\Middleware\CacheWithVarnish` middleware to the route middlewares.
+Add the `DeltaBlue\Varnish\Middleware\CacheWithVarnish` middleware to the route middlewares.
 
 For Laravel:
 ```php
 // app/Http/Kernel.php
 protected $routeMiddleware = [
 ...
-   'cacheable' => \Spatie\Varnish\Middleware\CacheWithVarnish::class,
+   'cacheable' => \DeltaBlue\Varnish\Middleware\CacheWithVarnish::class,
 ];
 ```
 If you are using Lumen, you need to load config file before route middleware definition to your `bootstrap/app.php`:
@@ -113,7 +113,7 @@ If you are using Lumen, you need to load config file before route middleware def
 $app->configure('varnish');
 $app->routeMiddleware([
 ...
-   'cacheable' => \Spatie\Varnish\Middleware\CacheWithVarnish::class,
+   'cacheable' => \DeltaBlue\Varnish\Middleware\CacheWithVarnish::class,
 ]);
 ```
 Finally, you should add these lines to the `vcl_backend_response` function in your VCL (by default this is located at `/etc/varnish/default.vcl` on your server):
@@ -172,7 +172,7 @@ a unix user that has `sudo` rights.
 You can also do this in your code to flush the cache:
 
 ```php
-(new Spatie\Varnish\Varnish())->flush();
+(new DeltaBlue\Varnish\Varnish())->flush();
 ```
 
 ## Changelog
