@@ -87,8 +87,8 @@ class VarnishSocket
     }
 
     /**
-     * @param $host
-     * @param $port
+     * @param string $host
+     * @param integer $port
      * @throws \Exception
      */
     private function socketConnect($host, $port)
@@ -112,7 +112,7 @@ class VarnishSocket
     }
 
     /**
-     * @param $secret
+     * @param string $secret
      * @throws \Exception
      */
     private function authenticate($secret)
@@ -157,7 +157,7 @@ class VarnishSocket
     }
 
     /**
-     * @param $challenge
+     * @param string $challenge
      * @param $secret
      * @return string
      */

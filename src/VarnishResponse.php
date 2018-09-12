@@ -110,11 +110,15 @@ class VarnishResponse
     }
 
     /**
-     * @return bool|string
+     * @return string
      */
     public function getAuthChallenge()
     {
-        return substr($this->content, 0, self::CHALLENGE_LENGTH);
+        $challenge = substr($this->content, 0, self::CHALLENGE_LENGTH);
+        if ($challenge === false) {
+            $challenge = '';
+        }
+        return $challenge;
     }
 
     /**
