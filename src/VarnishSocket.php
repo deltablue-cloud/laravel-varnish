@@ -270,12 +270,17 @@ class VarnishSocket
     /**
      * Read a single chunk from the Varnish socket
      *
-     * @return bool|string
+     * @return string
      * @throws \Exception
      */
     private function readSingleChunk()
     {
         $chunk = fgets($this->varnishSocket, self::CHUNK_SIZE);
+
+        // fgets returns false when an error occurs
+        if ($chunk === false) {
+            $chunk = '';
+        }
 
         // Check for socket timeout when an empty chunk is returned
         if (empty($chunk)) {
