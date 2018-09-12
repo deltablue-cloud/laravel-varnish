@@ -192,8 +192,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Freek Van der Herten](https://github.com/freekmurze))
-- [Mathias Aerts](https://github.com/mathiasaerts))
+- [Freek Van der Herten](https://github.com/freekmurze)
+- [Mathias Aerts](https://github.com/mathiasaerts)
 - [All Contributors](../../contributors)
 
 
