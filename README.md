@@ -1,10 +1,10 @@
 # Making Varnish and Laravel play nice together
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-varnish.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-varnish)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-varnish/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-varnish)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-varnish.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-varnish)
-[![StyleCI](https://styleci.io/repos/72834357/shield?branch=master)](https://styleci.io/repos/72834357)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-varnish.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-varnish)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/deltablue/laravel-varnish.svg?style=flat-square)](https://packagist.org/packages/deltablue/laravel-varnish)
+[![Build Status](https://img.shields.io/travis/deltablue-cloud/laravel-varnish/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-varnish)
+[![Quality Score](https://img.shields.io/scrutinizer/g/deltablue-cloud/laravel-varnish.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-varnish)
+[![Total Downloads](https://img.shields.io/packagist/dt/deltablue/laravel-varnish.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-varnish)
+<!-- [![StyleCI](https://styleci.io/repos/72834357/shield?branch=master)](https://styleci.io/repos/72834357) -->
 
 This package provides an easy way to work with Varnish 4 (or 5) in Laravel. It provides a route middleware that, when applied to a route, will make sure Varnish will cache the response no matter what. The package also contains a function to flush the Varnish cache from within the application.
 
