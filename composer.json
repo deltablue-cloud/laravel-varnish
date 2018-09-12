@@ -1,11 +1,14 @@
 {
-    "name": "spatie/laravel-varnish",
+    "name": "deltablue/laravel-varnish",
     "description": "Making Varnish and Laravel play nice together",
     "keywords": [
-        "spatie",
-        "laravel-varnish"
+        "deltablue",
+        "laravel-varnish",
+        "laravel",
+        "varnish",
+        "remote"
     ],
-    "homepage": "https://github.com/spatie/laravel-varnish",
+    "homepage": "https://github.com/deltablue-cloud/laravel-varnish",
     "license": "MIT",
     "authors": [
         {
@@ -13,6 +16,12 @@
             "email": "freek@spatie.be",
             "homepage": "https://spatie.be",
             "role": "Developer"
+        },
+        {
+            "name": "Mathias Aerts",
+            "email": "mathias@delta.blue",
+            "homepage": "https://delta.blue",
+            "role": "Cloud Platform Engineer"
         }
     ],
     "require": {
@@ -26,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Varnish\\": "src"
+            "DeltaBlue\\Varnish\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Varnish\\Test\\": "tests"
+            "DeltaBlue\\Varnish\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -43,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Varnish\\VarnishServiceProvider"
+                "DeltaBlue\\Varnish\\VarnishServiceProvider"
             ]
         }
     }

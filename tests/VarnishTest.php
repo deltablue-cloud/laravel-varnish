@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Varnish\Test;
+namespace DeltaBlue\Varnish\Test;
 
-use Spatie\Varnish\Varnish;
+use DeltaBlue\Varnish\Varnish;
 
 class VarnishTest extends TestCase
 {
